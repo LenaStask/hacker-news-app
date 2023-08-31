@@ -1,9 +1,9 @@
 import React from 'react'
-import StoryItem from '../../components/StoryItem'
+import StoryList from '../../components/storyList/StoryList'
 
 function Main (): JSX.Element {
   return (
-    <StoryItem/>
+    <StoryList/>
   )
 }
 

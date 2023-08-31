@@ -5,10 +5,11 @@ export const getStoryIds = createAsyncThunk<number[], undefined>(
   'StoryIds/get',
   async () => await hackerNews.getStoryIds()
 )
-export interface initialStateType {
+
+interface StoryIdsState {
   ids: number[]
 }
-const initialState: initialStateType = {
+const initialState: StoryIdsState = {
   ids: []
 }
 const storyIdsSlice = createSlice({

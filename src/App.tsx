@@ -1,9 +1,9 @@
 import React from 'react'
-import './App.css'
+import Main from './pages/main/Main'
 
 function App (): JSX.Element {
   return (
-   <div>App</div>
+    <Main />
   )
 }
 

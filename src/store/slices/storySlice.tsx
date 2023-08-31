@@ -19,6 +19,7 @@ const initialState: IStoryState = {
     descendants: 0,
     id: 0,
     kids: [],
+    score: 0,
     time: Date.now(),
     title: '',
     type: '',

@@ -1,2 +1,1 @@
 # hacker-news-app
-√
