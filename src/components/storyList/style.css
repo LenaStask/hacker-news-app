@@ -4,3 +4,6 @@
   padding: 30px 50px;
   text-align: center;
 }
+.ant-spin-dot-item {
+  background-color: rgb(226, 106, 43) !important;
+}
