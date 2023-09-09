@@ -20,7 +20,7 @@ function App (): JSX.Element {
           </Link>
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} />
         </Header>
-        <Content>
+        <Content style={{ padding: '20px 50px' }}>
           <Routes>
             <Route path="/" element={<Main/>}/>
           </Routes>
