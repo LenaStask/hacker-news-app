@@ -7,3 +7,13 @@
 .ant-spin-dot-item {
   background-color: rgb(226, 106, 43) !important;
 }
+
+.custom_button {
+  color: #000000;
+  border-color: #000000;
+}
+
+.custom_button:hover {
+  border-color: #E26A2B !important;
+  color: #E26A2B !important;
+}
