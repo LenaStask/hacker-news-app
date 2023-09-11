@@ -4,6 +4,8 @@ import { getStory } from '../../store/slices/storySlice'
 import { useParams } from 'react-router-dom'
 import Title from 'antd/es/typography/Title'
 import { Anchor, Button, Space, Typography } from 'antd'
+import { ArrowLeftOutlined } from '@ant-design/icons'
+import './style.css'
 
 const { Link, Text } = Typography
 
@@ -21,7 +23,7 @@ function StoryItem (): JSX.Element {
 
   return (
     <Space direction="vertical">
-      <Button>Back</Button>
+      <Button href="/" className='custom_button' ><ArrowLeftOutlined />Back</Button>
       <Title level={2}>{story.story.title}</Title>
       <Anchor>
         <Link href={story.story.url}>{story.story.url}</Link>
