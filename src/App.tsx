@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Main from './pages/main/Main'
 import logoIcom from './assets/hacker-news.svg'
 import './style.css'
+import Story from './pages/story/Story'
 
 const { Header, Content } = Layout
 const { Link, Text } = Typography
@@ -23,6 +24,7 @@ function App (): JSX.Element {
         <Content style={{ padding: '20px 50px' }}>
           <Routes>
             <Route path="/" element={<Main/>}/>
+            <Route path="/story/:id" element={<Story/>}/>
           </Routes>
         </Content>
       </BrowserRouter>

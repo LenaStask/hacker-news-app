@@ -1,33 +1,34 @@
 import React, { useEffect } from 'react'
-import { Card, Space, Row, Col } from 'antd'
-import { StarOutlined } from '@ant-design/icons'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { getStory } from '../../store/slices/storySlice'
+import { useParams } from 'react-router-dom'
+import Title from 'antd/es/typography/Title'
+import { Anchor, Space, Typography } from 'antd'
 
-function StoryItem ({ id }: { id: number }): JSX.Element {
-  const IconText = ({ icon, text }: { icon: React.FC, text: string }): JSX.Element => (
-    <Space>
-      {React.createElement(icon)}
-      {text}
-    </Space>
-  )
-  const story = useAppSelector(state => state.story)
+const { Link, Text } = Typography
+
+function StoryItem (): JSX.Element {
+  const { id } = useParams()
+  console.log(id)
+  const story = useAppSelector((state) => state.story)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(getStory(id))
+    dispatch(getStory(Number(id)))
       .then(() => {})
       .catch(() => {})
   }, [getStory])
 
   return (
-    <Card hoverable onClick={() => { console.log('CLICK') }} size="small" title={story.story.title} style={{ width: 600 }}>
-      <Row gutter={16}>
-        <Col>{story.story.by}</Col>
-        <Col>{story.story.time}</Col>
-        <Col><IconText icon={StarOutlined} text={story.story.score.toString()} key="list-vertical-star-o" /></Col>
-      </Row>
-    </Card>
+    <Space direction="vertical">
+      <Title level={2}>{story.story.title}</Title>
+      <Anchor>
+        <Link href={story.story.url}>{story.story.url}</Link>
+      </Anchor>
+      <Text>Written by: {story.story.by}</Text>
+      <Text>{new Date(story.story.time).toUTCString()}</Text>
+      <Text>Total comments: {story.story.descendants}</Text>
+    </Space>
   )
 }
 
