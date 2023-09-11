@@ -12,7 +12,7 @@ export const getStories = createAsyncThunk<IStory[], undefined>(
   async () => {
     const ids = await hackerNews.getStoryIds()
     const stories = []
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 10; i++) {
       const a = await hackerNews.getStory(ids[i])
       stories.push(a)
     }

@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { getStory } from '../../store/slices/storySlice'
 import { useParams } from 'react-router-dom'
 import Title from 'antd/es/typography/Title'
-import { Anchor, Space, Typography } from 'antd'
+import { Anchor, Button, Space, Typography } from 'antd'
 
 const { Link, Text } = Typography
 
@@ -21,12 +21,13 @@ function StoryItem (): JSX.Element {
 
   return (
     <Space direction="vertical">
+      <Button>Back</Button>
       <Title level={2}>{story.story.title}</Title>
       <Anchor>
         <Link href={story.story.url}>{story.story.url}</Link>
       </Anchor>
       <Text>Written by: {story.story.by}</Text>
-      <Text>{new Date(story.story.time).toUTCString()}</Text>
+      <Text>{new Date(story.story.time * 1000).toUTCString()}</Text>
       <Text>Total comments: {story.story.descendants}</Text>
     </Space>
   )
