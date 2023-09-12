@@ -22,6 +22,12 @@ function StoryList (): JSX.Element {
       .catch(() => {})
   }, [fresh])
 
+  useEffect(() => {
+    console.log('setInterval')
+    const timer = setInterval(() => { refresh() }, 60g000)
+    return () => { clearInterval(timer) }
+  }, [fresh])
+
   if (loading) {
     return (
       <div className="example">
@@ -30,7 +36,7 @@ function StoryList (): JSX.Element {
     )
   }
   return (
-    <Space direction="vertical" style={{ display: 'flex' }}>
+    <Space direction="vertical" className='storylist-container'>
       <Button className='custom_button' onClick={() => { refresh() }}>Update news</Button>
       <Space direction="vertical" size="middle" style={{ display: 'flex', width: '100%' }}>
         {story.map(story => <StoryListItem key={story.id} story={story}/>) }

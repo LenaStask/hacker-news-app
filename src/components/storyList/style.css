@@ -1,3 +1,7 @@
+.storylist-container {
+  display: flex;
+  gap: 20px !important;
+}
 .example {
   margin: 20px 0;
   margin-bottom: 20px;
