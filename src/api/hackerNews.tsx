@@ -1,6 +1,7 @@
 import { type AxiosResponse } from 'axios'
 import client from './hackerNewsClient'
 import type IStory from '../interfaces/IStory'
+import type IComment from '../interfaces/IComment'
 
 const getStoryIds = async (): Promise<number[]> => {
   const response: AxiosResponse<number[]> = await client.get<number[]>('newstories.json', {
@@ -22,4 +23,13 @@ const getStory = async (id: number): Promise<IStory> => {
   return response.data
 }
 
-export default { getStoryIds, getStory }
+const getComment = async (id: number): Promise<IComment> => {
+  const response: AxiosResponse<IComment> = await client.get<IComment>(`item/${id}.json`, {
+    params: {
+      print: 'pretty'
+    }
+  })
+  return response.data
+}
+
+export default { getStoryIds, getStory, getComment }

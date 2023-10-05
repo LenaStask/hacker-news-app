@@ -1,0 +1,7 @@
+.commentLink {
+  color: #000000 !important;
+}
+
+.commentLink:hover {
+  color: #979796 !important;
+}

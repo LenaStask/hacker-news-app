@@ -1,12 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import storyIdsReducer from './slices/storyIdsSlice'
 import storyReducer from './slices/storySlice'
-import storiesReduser from './slices/storiesSlice'
+import storiesReducer from './slices/storiesSlice'
+import commentsReducser from './slices/commentSlice'
 
 const rootReducer = combineReducers({
   storyIds: storyIdsReducer,
   story: storyReducer,
-  stories: storiesReduser
+  stories: storiesReducer,
+  comments: commentsReducser
 })
 
 export const store = configureStore({

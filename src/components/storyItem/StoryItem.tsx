@@ -3,15 +3,15 @@ import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { getStory } from '../../store/slices/storySlice'
 import { useParams } from 'react-router-dom'
 import Title from 'antd/es/typography/Title'
-import { Anchor, Button, Space, Typography } from 'antd'
+import { Button, Space, Typography } from 'antd'
 import { ArrowLeftOutlined } from '@ant-design/icons'
 import './style.css'
+import CommentList from '../commentList/CommentList'
 
 const { Link, Text } = Typography
 
 function StoryItem (): JSX.Element {
   const { id } = useParams()
-  console.log(id)
   const story = useAppSelector((state) => state.story)
   const dispatch = useAppDispatch()
 
@@ -25,12 +25,11 @@ function StoryItem (): JSX.Element {
     <Space direction="vertical">
       <Button href="/" className='custom_button' ><ArrowLeftOutlined />Back</Button>
       <Title level={2}>{story.story.title}</Title>
-      <Anchor>
-        <Link href={story.story.url}>{story.story.url}</Link>
-      </Anchor>
+      <Link href={story.story.url}>{story.story.url}</Link>
       <Text>Written by: {story.story.by}</Text>
       <Text>{new Date(story.story.time * 1000).toUTCString()}</Text>
       <Text>Total comments: {story.story.descendants}</Text>
+      <CommentList/>
     </Space>
   )
 }

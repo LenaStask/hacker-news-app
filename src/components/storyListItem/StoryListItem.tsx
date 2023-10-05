@@ -16,7 +16,7 @@ function StoryListItem ({ story }: { story: IStory }): JSX.Element {
 
   return (
     <Link className='story-container' href={`/story/ ${story.id}`}>
-      <Card hoverable onClick={() => { console.log('click') }} title={story.title} style={{ width: 600 }}>
+      <Card hoverable title={story.title} style={{ width: 600 }}>
         <Row gutter={16}>
           <Col>{story.by}</Col>
           <Col>{new Date(story.time * 1000).toUTCString()}</Col>

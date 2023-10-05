@@ -3,7 +3,7 @@ import type IStory from '../../interfaces/IStory'
 import hackerNews from '../../api/hackerNews'
 
 interface IStorierState {
-  story: IStory[]
+  stories: IStory[]
   loading: boolean
 }
 
@@ -16,13 +16,12 @@ export const getStories = createAsyncThunk<IStory[], undefined>(
       const a = await hackerNews.getStory(ids[i])
       stories.push(a)
     }
-    console.log(stories)
     return stories
   }
 )
 
 const initialState: IStorierState = {
-  story: [],
+  stories: [],
   loading: false
 }
 
@@ -35,7 +34,7 @@ const storiesSlice = createSlice({
       state.loading = true
     })
     builder.addCase(getStories.fulfilled, (state, action) => {
-      state.story = action.payload
+      state.stories = action.payload
       state.loading = false
     })
   }
