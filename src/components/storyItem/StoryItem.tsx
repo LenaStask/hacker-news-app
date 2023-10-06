@@ -29,9 +29,9 @@ function StoryItem(): JSX.Element {
       </Button>
       <Title level={2}>{story.story.title}</Title>
       <Link href={story.story.url}>{story.story.url}</Link>
-      <Text>Written by: {story.story.by}</Text>
-      <Text>{new Date(story.story.time * 1000).toUTCString()}</Text>
-      <Text>Total comments: {story.story.descendants}</Text>
+      <Text className='story_author'>Written by: {story.story.by}</Text>
+      <Text className='story_date'>{new Date(story.story.time * 1000).toUTCString()}</Text>
+      <Text className='story_total-comments'>Total comments: {story.story.descendants}</Text>
       <CommentList />
     </Space>
   );

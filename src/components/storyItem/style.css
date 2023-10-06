@@ -11,3 +11,11 @@
 .ant-typogrsphy {
   color: #000000;
 }
+.story_author, ç.story_date {
+  font-size: 25px;
+}
+
+.story_total-comments {
+  font-size: 25px;
+  margin-bottom: 30px;
+}
