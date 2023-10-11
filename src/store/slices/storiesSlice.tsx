@@ -10,7 +10,8 @@ interface IStorierState {
 export const getStories = createAsyncThunk<IStory[], undefined>(
   'story/get',
   async () => {
-    const ids = await hackerNews.getStoryIds()
+    const ids = (await hackerNews.getStoryIds())
+    ids.reverse()
     const stories = []
     for (let i = 0; i < 10; i++) {
       const a = await hackerNews.getStory(ids[i])

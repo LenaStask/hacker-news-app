@@ -3,7 +3,7 @@ import type IStory from '../../interfaces/IStory'
 import hackerNews from '../../api/hackerNews'
 
 interface IStoryState {
-  story: IStory
+  story: IStory|null
 }
 
 export const getStory = createAsyncThunk<IStory, number>(
@@ -14,17 +14,7 @@ export const getStory = createAsyncThunk<IStory, number>(
 )
 
 const initialState: IStoryState = {
-  story: {
-    by: '',
-    descendants: 0,
-    id: 0,
-    kids: [],
-    score: 0,
-    time: Date.now(),
-    title: '',
-    type: '',
-    url: ''
-  }
+  story: null
 }
 
 const storySlice = createSlice({

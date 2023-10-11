@@ -31,7 +31,7 @@ function CommentListItem({
     }
   };
 
-  const linkStyle = blocked ? "commentLink-blocked"  : "" 
+  const linkStyle = blocked ? "commentLink-blocked"  : ""; 
 
   return (
     <div style={{ marginLeft: level * 20 }}>
