@@ -1,36 +1,42 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import type IComment from '../../interfaces/IComment'
-import hackerNews from '../../api/hackerNews'
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import type IComment from "../../interfaces/IComment";
+import hackerNews from "../../api/hackerNews";
 
 interface ICommentState {
-  comments: IComment[]
+  comments: IComment[];
+  loading: boolean;
 }
 
 export const getComments = createAsyncThunk<IComment[], number[]>(
-  'comments/get',
+  "comments/get",
   async (ids: number[]) => {
-    const comments = []
+    const comments = [];
     for (let i = 0; i < ids.length; i++) {
-      const comment = await hackerNews.getComment(ids[i])
-      comments.push(comment)
+      const comment = await hackerNews.getComment(ids[i]);
+      comments.push(comment);
     }
-    return comments
+    return comments;
   }
-)
+);
 
 const initialState: ICommentState = {
-  comments: []
-}
+  comments: [],
+  loading: false,
+};
 
 const commentSlice = createSlice({
-  name: 'comment',
+  name: "comment",
   initialState,
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
+    builder.addCase(getComments.pending, (state) => {
+      state.loading = true;
+    });
     builder.addCase(getComments.fulfilled, (state, action) => {
-      state.comments = [...state.comments, ...action.payload]
-    })
-  }
-})
+      state.comments = [...state.comments, ...action.payload];
+      state.loading = false;
+    });
+  },
+});
 
-export default commentSlice.reducer
+export default commentSlice.reducer;

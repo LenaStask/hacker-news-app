@@ -1,19 +1,27 @@
 import React from "react";
 import type IComment from "../../interfaces/IComment";
 import CommentListItem from "../commentListItem/CommentListItem";
-import { Space } from "antd";
+import { Space, Spin } from "antd";
 import { useAppSelector } from "../../store/hook";
 
 function CommentTree({
   parentId,
   level,
+  loading,
 }: {
   parentId: number;
   level: number;
+  loading: boolean;
 }): JSX.Element {
   const { comments } = useAppSelector((state) => state.comments);
 
-  console.log(comments);
+  if (loading) {
+    return (
+      <div className="example">
+        <Spin size="large" />
+      </div>
+    );
+  }
 
   return (
     <Space direction="vertical">

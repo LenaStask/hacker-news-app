@@ -1,6 +1,9 @@
 .commentLink {
   color: #000000 !important;
 }
+.commentLink-blocked {
+  pointer-events: none;
+}
 
 .commentLink:hover {
   color: #979796 !important;
