@@ -1,8 +1,9 @@
 import React from "react";
 import type IComment from "../../interfaces/IComment";
 import CommentListItem from "../commentListItem/CommentListItem";
-import { Space, Spin } from "antd";
+import { Space } from "antd";
 import { useAppSelector } from "../../store/hook";
+import Loader from '../loader/Loader';
 
 function CommentTree({
   parentId,
@@ -17,9 +18,7 @@ function CommentTree({
 
   if (loading) {
     return (
-      <div className="example">
-        <Spin size="large" />
-      </div>
+      <Loader/>
     );
   }
 

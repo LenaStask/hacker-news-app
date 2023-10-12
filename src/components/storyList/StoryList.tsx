@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
-import { Button, Space, Spin } from 'antd'
+import { Button, Space } from 'antd'
 import { getStories } from '../../store/slices/storiesSlice'
 import './style.css'
 import StoryListItem from '../storyListItem/StoryListItem'
+import Loader from '../loader/Loader'
 
 function StoryList (): JSX.Element {
   const dispatch = useAppDispatch()
@@ -27,9 +28,7 @@ function StoryList (): JSX.Element {
 
   if (loading) {
     return (
-      <div className="example">
-        <Spin size="large" />
-      </div>
+      <Loader/>
     )
   }
   return (
