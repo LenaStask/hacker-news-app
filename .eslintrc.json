@@ -5,19 +5,16 @@
     },
     "extends": [
         "standard-with-typescript",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "prettier"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
-        "project": ["tsconfig.json"],
         "sourceType": "module"
     },
     "plugins": [
         "react"
     ],
     "rules": {
-        "semi": "off",
-        "@typescript-eslint/semi": "error",
-        "@typescript-eslint/no-floating-promises": "error"
     }
 }
