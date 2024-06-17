@@ -26,6 +26,7 @@ function StoryListItem({ story }: { story: IStory }): JSX.Element {
         <Row gutter={16}>
           <Col>{story.by}</Col>
           <Col>{new Date(story.time * 1000).toUTCString()}</Col>
+          <Col>Comments: {story.kids !== undefined ? story.kids?.length: 0}</Col>
           <Col>
             <IconText
               icon={StarOutlined}
