@@ -4,6 +4,7 @@ import type IComment from "../../interfaces/IComment";
 import { useAppDispatch } from "../../store/hook";
 import { getComments } from "../../store/slices/commentSlice";
 import CommentTree from "../commentTree/CommentTree";
+import { CaretDownOutlined } from "@ant-design/icons";
 import "./style.css";
 
 function CommentListItem({
@@ -31,7 +32,7 @@ function CommentListItem({
     }
   };
 
-  const linkStyle = blocked ? "commentLink-blocked"  : ""; 
+  const linkStyle = blocked ? "commentLink-blocked"  : "" 
 
   return (
     <div style={{ marginLeft: level * 20 }}>
@@ -41,6 +42,8 @@ function CommentListItem({
           openComments(comment);
         }}
       >
+        <CaretDownOutlined />
+        <span dangerouslySetInnerHTML={{ __html: comment.by }} style={{ marginLeft: 10, color: '#777777' }}></span>
         <div dangerouslySetInnerHTML={{ __html: comment.text }}></div>
       </Link>
       {hasKids ? (
